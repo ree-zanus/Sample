@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="one" class="buttonCalc">1</button>
+    <button id="two" class="buttonCalc">2</button>
+    <button id="three" class="buttonCalc">3</button>
+    <button id="4" class="buttonCalc">4</button>
+    <button id="5" class="buttonCalc">5</button>
+    <button id="6" class="buttonCalc">6</button>
+    <button id="7" class="buttonCalc">7</button>
+    <button id="8" class="buttonCalc">8</button>
+    <button id="9" class="buttonCalc">9</button>
+    <button id="0" class="buttonCalc">0</button>
+    <button id="plus" class="buttonCalc">+</button>
+    <button id="equality" class="buttonCalc">=</button>
+    <input id="answer" type="text" class="calcReq">
+</body>
+<script>
+
+    const inputElement = document.getElementById('answer');
+    const buttonOne = document.getElementById('one');
+    const buttonTwo = document.getElementById('two');
+    const buttonThree = document.getElementById('three');
+    const buttonPlus = document.getElementById('plus');
+    const buttonEqual = document.getElementById('equality');
+    
+    buttonOne.addEventListener('click', () => {
+        inputElement.value += '1'
+    });
+    buttonTwo.addEventListener('click', () => {
+        inputElement.value += '2'
+    })
+    buttonThree.addEventListener('click', () => {
+        inputElement.value += '3'
+    })
+    buttonPlus.addEventListener('click', () => {
+        inputElement.value += '+'
+    })
+    buttonEqual.addEventListener('click', () => {
+        const fullValue = inputElement.value;
+        const parts = fullValue.split('+');
+        let sum = 0;
+        for (let i = 0; i < parts.length; i++) {
+            function processPart() {
+                let portion = parts[i];
+                sum += Number(portion);
+                inputElement.value = sum;
+            }
+            processPart(parts[i]);
+        }
+        
+        
+    })
+
+// let hi = "Hello world!";
+// alert(hi)
+
+// console.log(5)
+// let str = "Привет";
+
+// str.test = 5;
+
+// alert(str.test);
+
+// let names = ['reezan', 'iserdmi', 'kaTTya2315'];
+
+// let getUsers = async (username) => {
+//     try {
+//         let response = await fetch(`https://api.github.com/users/${username}`, {
+//             method: 'GET',
+//             headers: {
+//                 'Content-Type': 'application/json;charset=utf-8'
+//             }
+//         });
+        
+//         if (response.ok) {
+//             let result = await response.json();
+//             console.log(result.login, result.name, result.html_url);
+//             alert(`${result.login} - ${result.name || 'имя не указано'}`);
+//         } else {
+//             alert(`Ошибка: ${response.status} - пользователь ${username} не найден`);
+//         }
+//     } catch (error) {
+//         console.error('Ошибка запроса:', error);
+//         alert('Произошла ошибка при запросе к API');
+//     }
+// }
+
+// Для каждого пользователя из массива
+// names.forEach(name => getUsers(name));
+
+
+    // let browser = prompt("Введите название вашего браузера");
+// switch (browser) {
+//   case 'Edge':
+//     alert( "You've got the Edge!" );
+//     break;
+
+//   case 'Chrome':
+//   case 'Firefox':
+//   case 'Safari':
+//   case 'Opera':
+//     alert( 'Okay we support these browsers too' );
+//     break;
+
+//   default:
+//     alert( 'We hope that this page looks ok!' );
+// }
+
+// if(browser === 'Edge') {
+//     alert("You've got the Edge!");
+// } else if (browser === 'Chrome' || browser === 'Firefox' || browser === 'Safari' || browser === 'Opera') {
+//     alert( 'Okay we support these browsers too' );
+// } else {
+//     alert( 'We hope that this page looks ok!' );
+// }
+
+
+</script>
+</html>
